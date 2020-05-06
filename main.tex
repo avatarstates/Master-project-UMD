@@ -1,0 +1,979 @@
+%% This is a LaTeX template for preparing papers for Publ. Inst. Math.; version January 2016
+%% Please delete everything begining with %% (DOUBLE %).
+
+% Submission number: 
+\documentclass[12pt]{article}
+%\tableofcontents
+\usepackage{amssymb}
+\usepackage{amsmath}
+% \begin{equation*}
+\usepackage{amsopn}
+% 
+\usepackage{mathrsfs}
+\usepackage[hyphens]{url} \urlstyle{same}
+%\usepackage[dvips]{graphicx} %% Package for inserting illustrations/figures
+\usepackage{amsthm}% proof can be used
+%% The following packages are useful (you may want to use them):
+%\usepackage{refcheck} %% Checks whether enumerated equations are referred to or not.
+                       %% Please remove unnecessary numbers.
+%\usepackage{cmdtrack} %% Checks whether all author defined macros are used or not
+                       %% (see the end of .log file); unused ones should be removed.
+%% Both packages have limitations---consult the package documentation.
+
+\theoremstyle{plain}
+ \newtheorem{thm}{\textbf{Theorem}}
+ \newtheorem{prop}{Proposition}[section]
+ \newtheorem{lem}{\textbf{Lemma}}
+ \newtheorem{cor}{\textbf{Corollary}}
+\theoremstyle{definition}
+ \newtheorem{exm}{\textbf{Example}}
+ \newtheorem{dfn}{\textbf{Definition}}
+\theoremstyle{remark}
+ \newtheorem{rem}{\textbf{Remark}}
+
+%% Please, do not change the following four lines:
+\renewcommand{\le}{\leqslant}\renewcommand{\leq}{\leqslant}
+\renewcommand{\ge}{\geqslant}\renewcommand{\geq}{\geqslant}
+\renewcommand{\setminus}{\smallsetminus}
+\setlength{\textwidth}{28cc} \setlength{\textheight}{42cc}
+
+%% Please use the newest classification -- 2010
+%% available at  http://msc2010.org/MSC-2010-server.html
+%% and the newest amsproc.cls.
+%% Please, classify to the third level,
+%% e.g., 26A and 26Axx are not satisfsctory.
+
+%%\keywords{optional, but desirable}
+
+%% OTHER AUTHOR(S):
+%\author[]{}
+%\address{ }
+%\email{}
+
+%\thanks{Supported by ... } %% optional
+%\thanks{Communicated by ...} %% This will be filled in the journal office.
+\begin{document}
+
+\begin{titlepage}
+   \begin{center}
+       \vspace*{1cm}
+ 
+       \textbf{Spectral Empirical distributions for products of Rectangular Matrices}
+ 
+       \vspace{0.5cm}
+        
+ 
+       \vspace{1.5cm}
+ 
+       \textbf{A PROJECT \\ SUBMITTED TO THE FACULTY OF THE GRADUATE SCHOOL\\ OF THE UNIVERSITY OF MINNESOTA\\ BY }\\
+        \vspace{1 cm}
+        \textbf{Hongru Zhao}\\
+       
+       \vspace{1cm}
+       \textbf{IN PARTIAL FULFILLMENT OF THE REQUIREMENTS\\ FOR THE DEGREE OF\\ Master of Science} 
+       \vspace{1 cm}
+       
+       \vspace{1 cm}
+       \textbf{Advisor: Dr. Yongcheng Qi}
+       \\
+        \vspace{1 cm}
+        \textbf{\today}
+   \end{center}
+\end{titlepage}
+
+
+
+
+%\author{Hongru Zhao}
+%\address{ %% Put here your affiliation; street address is not required
+%	Department of Mathematics and Statistics \\ % \hfill (Received 00 00 201?)\\
+%	University of Minnesota Duluth   \\ %\hfill (Revised  00 00 201?)\\
+%	US}
+%\email{zhao1118@d.umn.edu}
+%{\begin{flushleft}\baselineskip9pt\scriptsize
+%PUBLICATIONS DE L'INSTITUT MATH\'EMATIQUE\newline
+%Nouvelle s\'erie, tome ??(1??)) (201?), od--do \hfill DOI: \\
+%\end{flushleft}}
+%\vspace{18mm} \setcounter{page}{1} %\thispagestyle{empty}
+
+
+\begin{abstract}
+Consider a sequence of square matrices, each square matrix is a product of independent rectangular complex Ginibre ensemble. The entries of Ginibre ensemble are independent and identically distributed standard complex Gaussian random variables. In this paper, our aim is to study the limiting spectral empirical distributions of the sequence of products. The length of each product may vary. A complete description is given for the limiting spectral empirical distributions for rectangular products. Some new examples are available in the last chapter. \\
+{\bf Keywords:} Spectral empirical distribution, Product of rectangular complex Ginibre ensemble, Non-Hermitian random matrix
+\end{abstract}
+
+
+\newpage
+\tableofcontents
+
+\newpage
+
+
+
+\section{Introduction}\label{sec:intro}
+Historically, Random Matrix Theory was introduced by statisticians, Wishart\cite{wishart}, for statistical analysis of large samples. And then Wigner found applications for random Hermitian matrix in nuclear physics. Based on on his work, Dyson \cite{Dyson} found out that there are three nature classes: real symmetric, complex Hermitian and real quaternion self-dual. Similarly, Ginibre ensembles of non-symmetric real, non-Hermitian complex and non-self-dual real quaternion matrices with Gaussian entries were discussed in \cite{Ginibre}, which match Dyson indices.
+
+Classical semi-circular law was introduced by Wigner. Similarly, Ginibre\cite{Ginibre} established the circle law for Ginibre ensembles. Since then, the assumptions were relaxed in the works of Vyacheslav Girko,\cite{Girko} Zhidong Bai,\cite{Bai} Guangming Pan and Wang Zhou,\cite{Pan}, and Friedrich Gtze and Alexander Tikhomirov, \cite{GF-TA}. Tao and Vu\cite{Tao} proved the circular law under the weakest assumption. 
+
+Products of random matrices are particularly of interest in recent research. Ipsen\cite{Ipsen} provides several applications, include wireless telecommunication, disordered spin chain, the stability of large complex system, quantum transport in disordered wires and so on. Two recent papers by Jiang and Qi\cite{JiangQi2019}\cite{2017} consider the spectral radii and limiting empirical spectral distribution. Then Qi and Xie\cite{SRP} found the limiting spectral radii for rectangular products.
+
+In this paper, we consider the product of $m$ random rectangular matrices with independent and identically distributed (i.i.d.) complex Gaussian entries and investigate the limiting distributions for the spectral empirical distribution. When $m$ is fixed integer, Zeng \cite{zeng2016} obtained the limiting empirical spectral distribution. When these rectangular matrices are actually squared ones, the product matrix is reduced to the product of Ginibre ensembles, which has been studied in Jiang and Qi \cite{JiangQi2019}. 
+
+
+\section{Main Results}\label{sec:main}
+%In this paper we will study the limiting spectral laws of one type of random matrices. 
+In this paper, we consider $m$ independent rectangular matrices, $\mathbf{X}_j$, $1\leq j \leq m$, namely each $\mathbf{X}_j$ is an $n_j\times n_{j+1}$, matrix for $1\leq j\leq m$, where $n_1,\cdots, n_{m+1}$ are positive integers, and all entries of the $m$ matrices are independent and identically distributed (i.i.d) standard complex normal random variables. We assume $n_1=n_{m+1}=:n$ so that the product, $\mathbf{X}=\mathbf{X}_1 \cdots \mathbf{X}_{m}$ is an $n\times n$ square matrix. We also assume $n=\min_{1\leq j\leq m+1}n_j$. In this case the product matrix $\mathbf{X}$ is of full rank. 
+
+Denote the $n$ eigenvalues of $\mathbf{X}$ as $\mathbf{z}_{1}, \cdots, \mathbf{z}_{n}$, and set $l_{j}=n_{j}-n\geq 0$, $j=1, \cdots, m$. It follows from Theorem 2 of Adhikari et al. \cite{Adhikari} that the joint density function for $\mathbf{z}_{1}, \cdots, \mathbf{z}_{n}$ is given by 
+\begin{equation*}
+p\left({z}_{1}, \cdots, {z}_{n}\right)=C \prod_{1 \leq j<k \leq n}\left|{z}_{j}-{z}_{k}\right|^{2} \prod_{j=1}^{n} w_{m}^{\left(l_{1}, \cdots, l_{m}\right)}\left(\left|z_{j}\right|\right)
+\end{equation*}
+with respect to the Lebesgue measure on $\mathbb{C}^{n}$, where $C$ is a normalizing constant such that $p(z_1,\cdots, z_n)$ is a probability density function, and function $w_{m}^{\left(l_{1}, \cdots, l_{m}\right)}(z)$
+can be obtained recursively by 
+\begin{equation*}
+w_{k}^{\left(l_{1}, \cdots, l_{k}\right)}(z)=2 \pi \int_{0}^{\infty} w_{k-1}^{\left(l_{1}, \cdots, l_{k-1}\right)}\left(\frac{z}{s}\right) w_{1}^{\left(l_{k}\right)}(s) \frac{d s}{s}, \quad k \geq 2
+\end{equation*}
+with initial $w_{1}^{(l)}(z)=\exp \left(-|z|^{2}\right)|z|^{2 l}$ for any $z$ in the complex plane, see Zeng \cite{zeng2016}.
+
+Our objective in the paper is to investigate the limiting empirical spectral distribution of the product ensemble $\mathbf{X}$ when $n$ tend to infinity. We allow $m$ change with $n$ and write $m=m$ to show its dependence of $n$.
+
+The empirical spectral distribution of $\mathbf{X}$ is the empirical distribution based on the eigenvalue of $\mathbf{X}$ as $\mathbf{z}_{1}, \cdots, \mathbf{z}_{n}$, i.e., 
+\begin{equation}\label{equ:mu*}
+\mu^*=\frac{1}{n}\sum_{j=1}^n \delta_{\mathbf{z}_j/a_n},
+\end{equation}
+where $a_n>0$ is a sequence of normalizing constants. In this paper, $m$ can change with $n$. When $m=m$ diverges with $n$, the maginitude of $\mathbf{z}$'s can go to infinity exponentially or vanish exponentially. In this case, one may not able to find a sequence $a_n$ such that the empirical measure $\mu_n^*$ converges. Instead, we will define empirical distribution for scaled eigenvalues as in Jiang and Qi \cite{JiangQi2019}.
+
+Note that $\{ \mathbf{z}_j;1\leq j\leq n \}$ are complex random variables. Write 
+$$
+\Theta_j=\arg(\mathbf{z}_j)\in[0,2\pi), \text{ such that }\mathbf{z}_j=|\mathbf{z}_j|e^{i\Theta_j},
+$$
+for $1\leq j\leq n$. Further, assume that $Y_1,\cdots,Y_n$ are independent random variables, and random variable $Y_j$ has a density function proportional to $y^{j-1}w_m^{(l_1,l_2,\cdots,l_m)}(y)I(y>0)$. Given a sequence of measurable functions $h_n(r)$, $n\geq 1$, defined on $(0,\infty)$, set
+\begin{equation}\label{equ:mun}
+\mu_{n}=\frac{1}{n} \sum_{j=1}^{n} \delta_{\left(\Theta_{j}, h_{n}\left(\left|\mathbf{z}_{j}\right|\right)\right)} \text { and } \nu_{n}=\frac{1}{n} \sum_{j=1}^{n} \delta_{h_{n}\left({Y_{j}}\right)},
+\end{equation}
+
+We will see later that the convergence of $\mu_n$ is closely related to that of $v_n$. In (\ref{equ:mun}), if $h_n$ is linear, that is $h_n(r)=r/a_n$, where $\{ a_n,n\geq 1 \}$ is a sequence of positive numbers, we denote the empirical measure of $\mathbf{z}_j$'s by $\mu_n^*$ as in (\ref{equ:mu*}), and accordingly, we denote the empirical distribution $Y_j$'s by
+$$
+\nu_n^*=\frac{1}{n} \sum_{j=1}^{n} \delta_{{Y_{j}}/a_n}.
+$$
+Notation:
+\begin{itemize}
+    \item Any function $g(z)$ of complex variable $z=x+iy$ should be interpreted as a bivariate function of $(x,y):g(z)=g(x,y)$.
+    \item We write $\int_Ag(z)dz=\inf_Ag(x,y)dxdy$ for any measurable set $A\subset \mathcal{C}$.
+    \item \text{Unif}($A$) stands for the uniform distribution on a set $A$.
+    \item For a sequence of random probability measures $\{ \tau,\tau_n;n\geq 1 \}$, we write 
+    \begin{equation}\label{equ:leadsto converge}
+    \tau_{n} \leadsto \tau \text { if } \mathbb{P}\left(\tau_{n} \text { converges weakly to } \tau \text { as } n \rightarrow \infty\right)=1
+    \end{equation}
+\end{itemize}
+
+When $\tau$ is a non-random probability measure generated by random variable $X$, we simply write $\tau_n\leadsto X$. 
+
+Review the notation "$\leadsto$" in (\ref{equ:leadsto converge}).
+The symbol $\mu_1\otimes \mu_2$ represents the product measure of two measures $\mu_1$ and $\mu_2$.
+
+We first cite Theorem 1 in Jiang and Qi \cite{JiangQi2019} as follows.
+
+\begin{thm}\label{thm:nonlinear}
+Let $\phi(x)\geq 0$ be a measurable function define on $[0,\infty)$. Assume the density of $(z_1,\cdots,z_n)\in \mathbb{C}^n$ is proportional to $$\prod_{1\leq j<k\leq n} |z_j-z_k|^2\prod_{j=1}^n\phi (|z_j|).$$
+Let $Y_1,\cdots,Y_n$ be independent r.v.'s such that the density of $Y_j$ is proportional to $y^{2j-1}\phi(y)I(y\geq 0)$ for every $1\leq j\leq n$. If $\{ h_n \}$ are measurable functions such that $\nu_n\leadsto \nu$ for some probability measure $\nu$, then $\mu_n\leadsto \mu$ with $\mu=\text{Unif}[0,2\pi]\otimes \nu$. 
+
+Taking $h_n(r)=r/a_n$, the conclusion still holds if "$(\mu_n$,$\nu_n$,$\mu$,$\nu)$" is replaced by "$(\mu_n^*$,$\nu_n^*$,$\mu^*$,$\nu^*)$" where $\mu^*$ is the distribution of $Re^{i\Theta}$ with $(\Theta,R)$ having the law of $\text{Unif}[0,2\pi]\otimes \nu^*$.
+\end{thm}
+It follows form Theorem \ref{thm:nonlinear} that a common feature for limiting empirical distributions from determinant point processes that the angle and radius of the random vector with the liming distribution are independent.
+
+Inspired by Jiang and Qi \cite{JiangQi2019}, and Zeng \cite{zeng2016}, we define the following sequence of functions $F_n(x)$ and generalize their ideas for our theorem \ref{thm:main theorem} and theorem \ref{thm: ln F(x) limit}. The limiting spectral distribution actually depends on the limit of functions $F_n(x)$ as defined below.
+Let $\left\{\gamma_{n} ;  n \geq 1\right\}$ be a sequence of positive numbers. Define
+\begin{eqnarray*}
+	F_{n}(x)=\left(\prod_{j=1}^{m} \frac{nx+l_{j} }{n+l_{j}}\right)^{1 / \gamma_{n}}=
+	\left(\prod_{j=1}^{m} (1-\frac{n}{n_j}(1-x))\right) ^{1 / \gamma_{n}},  x \in[0,1]
+\end{eqnarray*}
+The sequence  $\gamma_{n}$ is called scale sequence.
+Note that $F_n(x)$ are continuous and strictly increasing on $[0,1]$, $F_{n}(0)=0$ and $F_{n}(1)=1$. We will assume that $F_n(x)$ converges weakly to a distribution function $F(x)$ such that $F(0-)=0, F(1)=1$.
+
+\begin{rem}\label{Kn F(x)}
+If $\exists n_j<n_1$, then let $K_n=min\{ n_j : 1\leq j\leq m\}$, and define
+\begin{equation*}
+F_n(x)=	\left(\prod_{j=1}^{m} (1-\frac{K_n}{n_j}(1-x))\right) ^{1 / \gamma_{n}},  x \in[0,1]
+\end{equation*}
+\end{rem}
+In chapter \ref{sec: a study in gamma}, we will demonstrate that $1\leq\gamma_{n}\leq m$ without loss of generality and $F(x)$ can only be of the type of one of the three classes in Theorem \ref{thm:classification}. We will assume that $F_n(x)$ converges weakly to a distribution function $F(x)$. 
+\begin{thm}\label{thm:main theorem}
+	Let $\{m\geq 1;n\geq 1\}$ be an arbitrary sequence of integers. Let $X_1X_2\cdots X_{m}$ be a sequence of products of rectangular complex Ginibre ensembles, which follows previous definition.\\
+	
+	$(a)$ Suppose that $F(x)$ is of $(i)$ class with $1\leq\gamma_n\leq m$, define 
+	\begin{equation*}
+	F^{*}(x)=\left\{\begin{array}{cc}{0,} & {x < F(0)} \\ {F^{-1}(x),} & {x \in[F(0),1)} \\ {1,} & {x \geq 1}\end{array}\right.
+	\end{equation*}
+	and define $h_n(x)=\frac{1}{a_n}|x|^{2/\gamma_{n}}$ , where $a_n=\prod_{r=1}^{m}n_r^{1/\gamma_{n}}$. Let $v$ be a probability measure, which can be determined by $\nu((-\infty,x])=F^*(x)$. Define spectral empirical measure as follows:
+	\begin{equation*}
+	\mu_{n}=\frac{1}{n} \sum_{j=1}^{n} \delta_{({\arg} (z_{j}), h_n(\left|z_{j}\right|))},
+	\end{equation*}
+	where  $\delta_{(\Theta,R)}$ is the delta function at $(\Theta,R)$ in polar coordinates.\\
+	Then $\mu_{n}$ converges weakly to$\text { Unif }[0,2 \pi) \otimes \nu$ as $n\to \infty$.\\
+	
+	$(b)$ Suppose that $F(x)$ is of $(ii)$ class with $1\leq\gamma_n\leq m$, define 
+	\begin{equation*}
+	F^{*}(x)=\left\{\begin{array}{cc}{0,} & {x < 1} \\ {1,} & {x \geq 1}\end{array}\right.
+	\end{equation*}
+	and $h_n(x)=\frac{1}{a_n}|x|^{2/\gamma_{n}}$, where $a_n=\prod_{r=1}^{m}n_r^{1/\gamma_{n}}$.\\
+	Then $\mu_{n}$ converges weakly to$\text { Unif }\{|z|=1\}$ as $n\to \infty$.\\
+\textbf{Note:} Weak convergence in polar coordinates is equivalent to that in Cartesian coordinates.
+\end{thm}
+
+
+\begin{rem}\label{rem: discard eigenvalue}
+	Let $K_n=min\{ n_j : 1\leq j\leq m\}$. If $n_1>K_n $, then there are $n_1-K_n$ trivial zero eigenvalues for product ensembles. Let $K_n=n_J$. It is trivial that $X_{1} \cdots X_{m}$ and $X_{n_J} \cdots X_{m} X_{1} \cdots X_{n_{J+1}}$ have exactly the same eigenvalues counting multiplicity except for 0 eigenvalue, we can generalize Theorem \ref{thm:main theorem},  replacing $n$ by $K_n$ and assume that $K_n\rightarrow \infty$ when sequence index $n\rightarrow \infty$.
+\end{rem}
+
+
+By Theorem \ref{thm:main theorem} and Remark \ref{rem: discard eigenvalue}, we obtain the next Corollary.
+\begin{cor}
+	Let $K_n=min\{ n_j : 1\leq j\leq m\}$,  $K_n/n\rightarrow p\in (0,1]$. Suppose $F_n(x)$, which is defined in Remark \ref{Kn F(x)}, converge weakly to a limiting distribution function $F(x)$, then $\mu_{n}$ converge weakly to a probability measure $\text {Unif }[0,2 \pi) \otimes v$, where $v((-\infty,x])=pF^*(x)+(1-p)\delta_0(x)$.
+\end{cor}
+
+The next theorem will determine $\gamma_n$ and the limiting distribution $F(x)$ only from the size of given random matrices sequence.
+
+\begin{thm}\label{thm:main theorem 2 with L}
+	 Let $n_{(j)}$ represent the j-th smallest $n_j$. Supposed there is a sequence $1\leq J_n \leq m$ such that the following three condition holds:\\
+	\begin{itemize}
+		\item [1.]	\begin{equation*}
+		\frac{1}{J_n}\sum_{r=J_n+1}^{m}\dfrac{n}{n_{(r)}}\rightarrow c, when\ n\rightarrow \infty.
+		\end{equation*}
+		\item [2.]\begin{equation*}
+		\dfrac{n}{n_{(J_n+1)}}\rightarrow 0,\text{ where } n_{(m+1)}:=\infty.
+		\end{equation*}
+		
+		\item [3.]	\begin{equation*}
+		\mathbb{P}\left(\mathscr{L}_{n}(J_n) \leqslant y\right):=\frac{1}{J_{n}} \sum_{r=1}^{J_{n}} I_{\left\{n / n_{(r)} \leqslant y\right\}} \rightarrow G(y), convergence\ weakly.
+		\end{equation*}
+	\end{itemize}
+	
+	Let $\gamma_{n}=J_n$, then
+	\begin{equation}
+	F(x)=\exp(\int_{[0,1]} H_{x}(\alpha) d G(\alpha)-c(1-x)), x \in(0,1),
+	\end{equation}
+	where $H_{x}(\alpha)=\ln (1-\alpha(1-x))$.\\
+	Thus, if we follow all definition in Theorem \ref{thm:main theorem} and $F(x)$ is not of the $(iii)$ class, then  $\mu_{n}$ converges weakly to$\text { Unif }[0,2 \pi) \otimes v$ as $n\to \infty$.\\
+
+	
+\end{thm}
+\begin{proof}
+	\begin{equation*}
+	\ln F_n(x)=\frac{1}{J_{n}} \sum_{r=1}^{J_{n}} \ln \left(1-\frac{n}{n_{(r)}}(1-x)\right)
+	+\frac{1}{J_{n}} \sum_{r=J_n+1}^{m} \ln \left(1-\frac{n}{n_{(r)}}(1-x)\right)
+	\end{equation*}
+	
+	Condition $3$ in Theorem \ref{thm:main theorem 2 with L} implies the first summation goes to \\
+	$\int_{[0,1]} H_{x}(\alpha) d G(\alpha)$, by using Portmanteau Theorem.\\
+	
+	Condition $1$ and $2$ in Theorem \ref{thm:main theorem 2 with L} imply the second summation goes to $-c(1-x)$, using inequality $(\ref{inequality})$.\\
+	
+	The last part of the proof follows from Theorem \ref{thm:main theorem}.
+\end{proof}
+
+
+
+%Define
+%\begin{equation*}
+%\mu_{n}=\frac{1}{n} \sum_{j=1}^{n} \delta_{h_n\left(\mathbf{z_{j}}\right)}
+%\end{equation*}
+%which is the empirical measure of the eigenvalues  $\mathbf{z}_{1}, \cdots, \mathbf{z}_{n}$.
+ \noindent 
+ 
+ \subsection{Structures of limit function $F(x)$}
+
+
+
+%%Now our aim is to find the properties of the limiting function $F(x)$.
+Firstly, the classification theorem for limiting distribution $F(x)$ is as follows.
+
+\begin{thm}\label{thm:classification}
+	If $F_n(x)$ converges weakly to a distribution function $F(x)$, then $F$ is of the type of one of the following three classes:\\
+	$(i)F(x)$ is continuous and strictly increasing on $[0,1]$, $F(0+)\geq0$ and $F(1)=1$ ,\\ 
+	$(ii)F(0-)=0$, $F(x)=1$ for all $x\in [0,1]$ ,\\
+	$(iii)F(1)=1$, $F(x)=0$ for all $x\in [0,1)$ .\\
+	Moreover,\\
+	$F(x) $ is of $(ii)$ class if and only if there exists $x\in (0,1)$ such that $F(x)=1$ if and only if
+	\begin{equation*}
+	\frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n+l_{r}} \rightarrow 0,\\
+	\end{equation*}
+	$F(x) $ is of $(iii)$ class if and only if there exists $x\in (0,1)$ such that $F(x)=0$ if and only if
+	\begin{equation*}
+	\frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n+l_{r}} \rightarrow \infty,\\
+	\end{equation*}
+	$F(x) $ is of $(i)$ class if and only if there exists $x\in (0,1)$ such that $F(x)\in (0,1)$, which implies there exists constant $c_1$ and $c_2$ such that 
+	\begin{equation}
+	0<c_{1} \leqslant \frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n+l_{r}} \leqslant c_{2}<\infty.
+	\end{equation}
+\end{thm}
+\begin{rem}\label{stange}
+	Even though $F_n(0)=0$, it is still possible that $F(0+)>0$. For instance, let $\gamma_{n}=m\to \infty$, $ l_1=0$ and $l_r=n,2\leq r\leq m$, then $F(x)=\frac{x+1}{2}, x\in (0,1)$.
+\end{rem}
+
+
+
+
+\subsection{Lemmas from previous work} 
+By Lemma 2.2 and 2.3 from Zeng \cite{zeng2017}, let 
+%Assume $Y_{1}, \ldots, Y_{n}$ are independent random variables such that the density of $Y_j$ is proportional to $y^{2 j-1} w_{m}^{\left(l_{1}, \ldots, l_{m}\right)}(y) I_{y>0}$. By Lemma 1.1 from Jiang and Qi \cite{2017} for any %symmetric $n$ function $g\left(t_{1}, \dots, t_{n}\right)$.\\
+
+\begin{equation*}
+T_{j}=\prod_{r=1}^{m} s_{j, r}, \quad 1 \leq j \leq n, 
+\end{equation*}
+where $s_{j,r}$ follows a Gamma($l_r+j$,1) distribution for any $1 \leq j \leq n, 1 \leq r \leq m$, i.e. the density function of $s_{j,r}$ is given by $y^{l_{r}+j-1} e^{-y} I_{y>0} / \Gamma\left(l_{r}+j\right)$.\\
+
+
+
+\begin{lem}\label{lem: Zeng 2017   lem 2.3}\cite{zeng2017}
+For $x \in[0, \infty)$, 
+\begin{equation*}
+\mathbb{P}\left(T_{1} \leq x\right) \geq \mathbb{P}\left(T_{2} \leq x\right) \geq \cdots   \geq \mathbb{P}\left(T_{n} \leq x\right)
+\end{equation*}
+\end{lem}
+\begin{lem}\label{lem: Zeng2017 Lemma 2.2}\cite{zeng2017}
+$g\left(T_{1}, \cdots, T_{n}\right)$ and $g\left(\left|z_{1}\right|^{2}, \cdots,\left|z_{n}\right|^{2}\right)$ have the same distribution, for any symmetric function $g(t_1,\cdots,t_n)$.
+\end{lem}
+
+Given a sequence of measurable functions $h_{n}(r), n\geq 1$ defined on $[0, \infty)$, set
+\begin{equation*}
+\mu_{n}=\frac{1}{n} \sum_{j=1}^{n} \delta_{\left(\Theta_{j}, h_{n}\left(\left|z_{j}\right|\right)\right)} \text { and } \nu_{n}=\frac{1}{n} \sum_{j=1}^{n} \delta_{h_{n}\left(\sqrt{T_{j}}\right)},
+\end{equation*}
+where $\Theta_{j}=\arg \left(z_{j}\right) \in[0,2 \pi)$.\\
+
+
+By lemma  \ref{lem: Zeng2017 Lemma 2.2}, and Theorem \ref{thm:nonlinear} from Jiang and Qi \cite{JiangQi2019}, we obtain the lemma as follows. 
+\begin{lem}\label{lem: Zeng 2017   lem ?}
+If {$h_n$} are measurable functions such that  $v_{n}$ converges weakly to $v$ for some probability measure $v$, then $\mu_{n}$ converge to $\mu$ weakly with $\mu=\text { Unif }[0,2 \pi] \otimes \nu$. 
+\end{lem}
+
+The following theorem play a significant role to prove Theorem \ref{thm:main theorem}. The proof is similar to Lemma 2.3 from Zeng \cite{zeng2017}.
+
+\begin{thm}\label{thm: ln F(x) limit}
+	If $1\leq\gamma_{n}\leq m$ and limiting function $F(x)$ exists, which is not of the $(iii)$ kind, then the following limit holds:
+	\begin{equation}
+	\frac{1}{\gamma_{n}} \ln \frac{T_{[\mathrm{nx}]}}{\prod_{r=1}^{m}(l_r+n)}-\ln F(x) \stackrel{P}{\rightarrow} 0, \quad x \in[0,1]
+	\end{equation}
+\end{thm}
+
+\begin{rem}
+	In practice, more often we choose $\gamma_{n}=1$,	$\gamma_{n}=m$ or 
+	\begin{equation*}
+	\gamma_{n}=\sum_{r=1}^{m} \frac{n}{n+l_{r}}.
+	\end{equation*}
+\end{rem}
+\section{Proofs}
+
+\subsection*{Proofs of Theorem \ref{thm:classification} , \ref{thm: ln F(x) limit} and \ref{thm:main theorem}}
+\ \\
+	First of all, we start with a trivial inequality, which is formula $(2.44)$ from Jiang and Qi \cite{JiangQi2019}. 
+	\begin{equation} \label{inequality} 
+	-\frac{1+\delta}{2 \delta}(1-t) \leq \ln t \leq-(1-t) \text { for } \delta \leq t \leq 1
+	\end{equation}
+\begin{prop}
+	For fixed $x_0\in (0,1)$,
+the following three conditions are equivalent:
+\begin{eqnarray*}
+&&(a) -\dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\ln(\dfrac{nx_0+l_r}{n+l_r})\to 0,\\
+&&(b) \dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\dfrac{n}{n+l_r}\to 0,\\
+&&(c)-\dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\ln(\dfrac{nx+l_r}{n+l_r})\to 0, for\ all\ x\in (0,1).
+\end{eqnarray*}
+\end{prop}
+\begin{proof}
+Let $t=\dfrac{nx+l_r}{n+l_r}$, then $1-t=\dfrac{(1-x)n}{n+l_r}$ and $x\leq \dfrac{nx+l_r}{n+l_r}\leq 1$.\\
+We obtain 
+\begin{equation}\label{ineq}
+-\frac{1+x}{2 x}\dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\dfrac{(1-x)n}{n+l_r} \leq  \dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\ln(\dfrac{nx+l_r}{n+l_r}) \leq-\dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\dfrac{(1-x)n}{n+l_r}
+\end{equation}
+Hence $(a)\Rightarrow (b)\Rightarrow (c)\Rightarrow (a)$.
+\end{proof}
+\begin{prop}
+	For fixed $0<x_1<x_2<1$,
+	the following three conditions are equivalent to the previous three conditions:
+\begin{eqnarray*}
+&&(d) -[\dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\ln(\dfrac{nx_1+l_r}{n+l_r})-\dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\ln(\dfrac{nx_2+l_r}{n+l_r})]=-\dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\ln(\dfrac{nx_2\frac{x_1}{x_2}+l_r}{nx_2+l_r})\to 0,\\
+&&(e) \dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\dfrac{nx_2}{nx_2+l_r}\to 0,\\
+&&(f) \dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\dfrac{nx}{nx+l_r}\to 0, for\ all\ x\in (0,1).
+\end{eqnarray*}
+\end{prop}
+\begin{proof}
+	The proof of $(d)\Leftrightarrow(e)$ is similar to the proof of $(a)\Leftrightarrow(b)$. \\
+	Since
+	\begin{equation*}
+x\dfrac{n}{n+l_r}\leq \dfrac{xn}{nx+l_r}\leq \dfrac{n}{n+l_r},
+	\end{equation*}
+we know $(e)\Rightarrow (b)\Rightarrow (f)\Rightarrow (e)$
+\end{proof}
+\begin{rem}\label{rem6}
+	We can replace property "$\to 0$", by "$\to \infty$"  or  "$\in [c_1,c_2] $, where exists constants $c_1>0, c_2<\infty$", but the constants maybe different under different conditions. Using "$\to 0$" and "$\to \infty$" version equivalence between $(a)$ and $(c)$, we obtain the following corollary.
+\end{rem}
+\begin{cor}\label{corollary1}
+If there exists $x_0\in (0,1)$, such that $F(x_0)=0$, then $F(x)$ is of $(iii)$ class. 
+\end{cor}
+\begin{cor}
+	If there exists $x_0\in (0,1)$, such that $F(x_0)=1$, then $F(x)$ is of $(ii)$ class. 
+\end{cor}
+
+\begin{lem}\label{lem4_new}
+    If there exists $0<x'_{1}<x'_{2}<1$ such that $F(x'_1)=F(x'_2)\neq 0$, then $F(x)$ is of $(ii)$ class. 
+\end{lem}
+\begin{rem}\label{rem7_new}
+	If $F(x'_1)=F(x'_2)=0$, by corollary \ref{corollary1}, we know that $F(x)$ is of $(iii)$ class.\\
+\end{rem}
+\begin{proof}[\textit{\textbf{Proof of Lemma \ref{lem4_new}}}]
+    By squeeze theorem, $F(x)$ exists and takes a constant value on $(x_1',x_2')$. Thus $F(x)$  is continuous at $x_1,x_2$, where $x_1'<x_1<x_2<x_2'$. We know that condition $(d)$ holds. Because of the equivalency between $(d)$ and $(c)$, we obtain that $F(x)=1$ for all $x \in(0,1)$.
+\end{proof}
+\begin{lem}
+If there exists $x_0\in (0,1)$, such that $0<F(x_0)<1$ and weak limit $F(x)$ exists, then $F(x)$ is of $(i)$ class. 
+\end{lem}
+
+\begin{proof}[\textit{\textbf{Proof of Theorem \ref{thm:classification}}}]
+	By lemma \ref{lem4_new} and remark \ref{rem7_new}, $0<F(x_0)<1$ implies $F(x)$ strictly increasing on $(0,1)$. Using remark \ref{rem6} of proposition, we know that 
+	\begin{equation*}
+	0<c_1\leq \frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n+l_{r}} %\leq \dfrac{m}{\gamma_{n}}\ \ \text {and}\ \% \frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n+l_{r}}
+	\leq c_2<\infty.
+	\end{equation*}
+	 We need to prove the continuity of $F(x)$ at $(0,1)$ as well as left continuity at $1$.\\
+	 Since $F(x)$ is strictly increasing, set of points where $F(x)$ is not continuous is at most countable, which means we can always find a continuous point on any open set.\\
+%	 First of all, let a sequence $x_k\to 0$ which belongs to the set of points where $F(x)$ is continuous over $(0,1)$. 
+%\begin{eqnarray*}
+%	&&\ \ \frac{1}{\gamma_{n}} \sum_{r=1}^{m} \ln \left(\frac{n x_k+l_{r}}{n+l_{r}}\right)\\
+%	&&=	\frac{1}{\gamma_{n}} \sum_{r=2}^{m} \ln \left(\frac{n x_k+l_{r}}{n+l_{r}}\right)+
+%	\dfrac{1}{\gamma_{n}} ln\ x_k\\
+%	&&\leq \dfrac{m}{\gamma_{n}} ln\ x_k\\
+%	&&\leq c_1 \  ln\ x_k \to -\infty.
+%\end{eqnarray*}
+%Hence we obtain $F(x_k)\to 0$, i.e. $F(x)$ is right continuous at 0.\\
+First of all, let a sequence $x_k\to 1$ which belongs to the set of point where $F(x_k)$ is continuous over $(0,1)$. 
+\begin{equation*}
+ \frac{1}{\gamma_{n}} \sum_{r=1}^{m} \ln \left(\frac{n x_k+l_{r}}{n+l_{r}}\right)\geq -\frac{1+x_k}{2 x_k} \frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{(1-x_k) n}{n+l_{r}} \geq -\frac{(1+x_k)(1-x_k)}{2x_k}c_2\to 0.
+\end{equation*}
+Hence we get $F(x_k)\to 1$, i.e. $F(x)$ is left continuous at 1.\\
+Next, for fixed $x\in (0,1)$, we can still find two sequences of points, such that $x_k\nearrow x$, $y_k\searrow x$ and $F(x)$ is continuous at $x_k$ and $y_k$ for all $k$.\\
+We want to proof $F(x_k)-F(y_k)\to 0$, when $x_k\nearrow x$ and $y_k\searrow x$.\\
+\begin{eqnarray*}
+0&&\geq F(x_k)-F(y_k)\\
+  &&= \lim _{n \rightarrow \infty} \frac{1}{\gamma_{n}} \sum_{r=1}^{m} \ln \left(\frac{n y_{k} \frac{x_{k}}{y_{k}}+l_{r}}{n y_{k}+l_{r}}\right)\\
+  &&\geq   -\frac{(1+\frac{x_{k}}{y_{k}})(1-\frac{x_{k}}{y_{k}})}{2 \frac{x_{k}}{y_{k}}} \limsup _{n \rightarrow \infty} \frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{ ny_k}{ny_k+l_{r}}\\ &&\geq-\frac{\left(1+\frac{x_{k}}{y_{k}}\right)\left(1-\frac{x_{k}}{y_{k}}\right)}{2 \frac{x_{k}}{y_{k}}} c_2\to 0, k\to  \infty
+\end{eqnarray*}
+Hence $F(x)$ is continuous over $(0,1]$. This complete the proof of Theorem \ref{thm:classification}
+\end{proof}
+
+The following notation is similar to Lemma 3.6 in \cite{SRP}.
+For fixed $n$ and $k>0$, we define
+\begin{equation}\label{def_delta}
+\Delta_{j, k}=\sum_{r=1}^{m} \frac{1}{\left(j+l_{r}\right)^{k}}, \quad j=1,2, \cdots, n.
+\end{equation}
+
+\begin{lem}
+	Recall the definition in formula $(\ref{def_delta})$. For fixed $x\in (0,1)$, let $\left\{j_{n} ; n \geq 1\right\}$ be a sequence of numbers satisfying $1\leq j_n\leq [nx]$ for all $n$ such that $nx\geq 1$. \\
+	$(1)$Then for $n-j_n +1\leq j \leq n$, we have $\Delta_{n, k} \leq \Delta_{j, k}<\dfrac{1}{(1-x)^{k}} \Delta_{n, k}$ for $k>0$,\\
+	$(2)$ For any $j$, $a\geq 0$, $\Delta_{j, 2} / \Delta_{j, 1}^{1+a} \leq j^{a-1}$.
+\end{lem}
+\begin{proof}
+	$(1)$Since 
+	\begin{equation*}
+		(1-x)n_r< n_{r}-j_{n}+1 \leq j+l_{r} \leq n_{r},
+	\end{equation*}
+	we have for $k>0$,
+	\begin{equation*}
+		\frac{1}{n_{r}^{k}} \leq \frac{1}{\left(j+l_{r}\right)^{k}}<\frac{1}{(1-x)^k}\frac{1}{ n_{r}^{k}}, \quad 1 \leq r \leq m
+	\end{equation*}
+	By summing up over $r \in\left\{1, \cdots, m\right\}$, $(1)$ holds.\\
+	$(2)$Since $j /\left(j+l_{r}\right) \leq 1$ and $\Delta_{j,1} \geq 1 / j$, for any $a\geq 0$,
+	\begin{eqnarray*}
+		&&\frac{\Delta_{j, 2}}{\Delta_{j, 1}^{1+a}}\\
+		&&=\frac{\sum_{r=1}^{m} \frac{1}{\left(j+l_{r}\right)^{2}}}{\left(\sum_{r=1}^{m} \frac{1}{j+l_{r}}\right)^{1+a}}\\
+		&&=j^{a-1} \cdot \frac{\sum_{r=1}^{m}\left(\frac{j}{j+l_{r}}\right)^{2}}{\left(\sum_{r=1}^{m} \frac{j}{j+l_{r}}\right)^{1+a}} \\
+		&&\leq j^{a-1} \cdot \frac{\sum_{r=1}^{m} \frac{j}{j+l_{r}}}{\left(\sum_{r=1}^{m} \frac{j}{j+l_{r}}\right)^{1+a}} \\
+		&&\leq \frac{j^{a-1}}{\left(\sum_{r=1}^{m} \frac{j}{j+l_{r}}\right)^{a}} \\
+		&&\leq j^{a-1}
+	\end{eqnarray*}
+	In the last estimation, we have used the fact that 
+	\begin{equation*}
+		\sum_{r=1}^{m} \frac{j}{j+l_{r}} \geq \frac{j}{j+l_{1}}=1.
+	\end{equation*}
+\end{proof}
+
+\begin{proof}[\textit{\textbf{Proof of Theorem \ref{thm: ln F(x) limit}}}]
+	There exist constant $c_2>0$, such that $$\frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n+l_{r}}\leq c_2,$$ since $F(x)$ is not of the $(iii)$ class, which also implies $F(x)$ is continuous and positive over $(0,1]$.\\
+	We start with calculation.
+	\begin{equation*}
+		\mu_{j, r}=\mathbb{E}\left(s_{j, r}\right)=l_{r}+j,\ {Var}\left(s_{j, r}\right)=l_{r}+j
+	\end{equation*}
+	Recall $\ln T_{j}=\sum_{r=1}^{m} \ln s_{j, r} \text { for } j \geq 1$. And the moment generating function of $\ln s_{j, r}$ is 
+	\begin{equation*}
+		m_{j}(t)=\mathbb{E}\left[e^{t \ln s_{j, r}}\right]=\frac{\Gamma\left(l_{r}+j+t\right)}{\Gamma\left(l_{r}+j\right)}, t>-(l_r+j),
+	\end{equation*}
+	which follows that 
+	\begin{equation*}
+		\mathbb{E}\left(\ln s_{j, r}\right)=\left.\frac{d}{d t} m_{j}(t)\right|_{t=0}=\frac{\Gamma^{\prime}\left(l_{r}+j\right)}{\Gamma\left(l_{r}+j\right)}=\psi\left(l_{r}+j\right),
+	\end{equation*}
+	where $\psi(x)=\Gamma^{\prime}(x) / \Gamma(x)$ is a digamma function.\\
+	Thus, we have 
+	\begin{equation*}
+		\mathbb{E}\left[\ln T_{j}\right]=\sum_{r=1}^{m} \mathbb{E}\left(\ln s_{j, r}\right)=\sum_{r=1}^{m} \psi\left(l_{r}+j\right)
+	\end{equation*}
+	Set $\eta(x)=x-1-\ln x \text { for } x \geq 0$, $j=[nx]$. Then
+	\begin{equation}\label{formular_lnT_mid}
+	\ \ \ \dfrac{1}{\gamma_{n}}\ln \frac{T_{j}}{\prod_{r=1}^{m}(l_r+n)}-\dfrac{1}{\gamma_{n}} \sum_{r=1}^{m}\ln (\frac{l_r+[nx]}{l_r+n})=\dfrac{1}{\gamma_{n}}[\sum_{r=1}^{m}(\frac{s_{j,r}}{\mu_{j,r}}-1)-\sum_{r=1}^{\gamma_{n}}\eta(\frac{s_{j,r}}{\mu_{j,r}})].
+	\end{equation}
+	First of all, 
+	\begin{equation*}
+		\begin{aligned}
+			\frac{1}{\gamma_{n}^2} {Var}\left(\sum_{r=1}^{m}\left(\frac{s_{j, r}}{\mu_{j, r}}-1\right)\right) 
+			&=\frac{1}{\gamma_{n}^2}\sum_{r=1}^{m} \frac{{Var}\left(s_{j, r}\right)}{\mu_{j, r}^{2}} \\ &=\frac{1}{\gamma_{n}^2}\sum_{r=1}^{m} \frac{1}{l_{r}+j} \\
+			&=\frac{1}{\gamma_{n}^2}\Delta_{[nx], 1}\\
+			&\leq\frac{1}{1-x}\frac{1}{\gamma_{n}^2}\Delta_{n, 1}\\
+			&=\frac{1}{1-x}\frac{1}{n\  \gamma_{n}^2}\sum_{r=1}^{m}\frac{n}{n+l_r}\\
+			&\leq\frac{1}{1-x}\frac{c_2}{n }\to 0, n\to \infty.
+		\end{aligned}
+	\end{equation*}
+	Then by Chebyshev inequality, we obtain
+	\begin{equation}\label{term1}
+	\frac{1}{\gamma_n}\sum_{r=1}^{m}\left(\frac{s_{j, r}}{\mu_{j, r}}-1\right) \stackrel{p}{\rightarrow} 0.
+	\end{equation}
+By formulas 6.3.18 from Abramowitz and Stegun \cite{Handbook of Mathematical Functions},
+\begin{equation*}
+ \psi(x)=\ln x-\frac{1}{2 x}+O\left(\frac{1}{x^{2}}\right) \text{ as }x\to \infty. 
+\end{equation*}
+
+	\begin{equation*}
+		\begin{aligned}&\ \ \ \frac{1}{\gamma_{n}} \mathbb{E}\left[\sum_{r=1}^{m} \eta\left(\frac{s_{j, r}}{\mu_{j, r}}\right)\right]\\
+			&=\frac{1}{\gamma_{n}} \left[  \sum_{r=1}^{m} \ln \mu_{j, r}-\mathbb{E} \sum_{r=1}^{m} \ln s_{j, r}\right] \\ 
+			&=\frac{1}{\gamma_{n}}\left[\sum_{r=1}^{m} \ln \left(l_{r}+j\right)- \sum_{r=1}^{m} \psi\left(l_{r}+j\right)\right] \\ 
+			&=\frac{1}{\gamma_{n}}\left[\sum_{r=1}^{m} \ln \left(l_{r}+j\right)-\sum_{r=1}^{m}\left (    \ln \left(l_{r}+j\right)-\frac{1}{2\left(l_{r}+j\right)}+O\left(\frac{1}{\left(l_{r}+j\right)^{2}}\right)\right) \right] \\
+			&=\frac{1}{\gamma_{n}}\sum_{r=1}^{m} \left[\frac{1}{2\left(l_{r}+j\right)}+O\left(\frac{1}{\left(l_{r}+j\right)^{2}}\right)\right] \\
+			&\leq\frac{1}{\gamma_{n}} \left( \frac{1}{2}\Delta_{j, 1}+M\Delta_{j, 2} \right)\\
+			&\leq\frac{1}{\gamma_{n}} (\frac{1}{2}+\frac{M}{j})\Delta_{[nx], 1}\\
+			&\leq\frac{\Delta_{n, 1}}{\gamma_{n}} (\frac{1}{2}+M)\frac{1}{1-x}\\
+			&\leq\frac{1}{n} (\frac{1}{2}+M)\frac{c_2}{1-x}\to 0.
+		\end{aligned}
+	\end{equation*}
+	Since the term  $\sum_{r=1}^{m} \eta\left(\frac{s_{j, r}}{\mu_{j, r}}\right)>0$, it is easy to show that when $j=[nx]$
+	\begin{equation}\label{term2}
+	\frac{1}{\gamma_{n}}\sum_{r=1}^{m} \eta\left(\frac{s_{j, r}}{\mu_{j, r}}\right) \stackrel{P}{\rightarrow} 0
+	\end{equation}
+	Therefore, combining (\ref{formular_lnT_mid}), (\ref{term1}) and (\ref{term2}), we obtain.
+	\begin{equation}\label{formular_lnT}
+	\frac{1}{\gamma_{n}} \ln \frac{T_{[\mathrm{nx}]}}{\prod_{r=1}^{m}(l_r+n)}-\ln F_n(\frac{[nx]}{n}) \stackrel{P}{\rightarrow} 0, \quad x \in[0,1]
+	\end{equation}
+	Since the limiting function $F(x)$ is continuous and positive in $(0,1)$. Therefore, the convergence 
+	$\lim _{n \rightarrow \infty} F_{n}(x)=F(x)$ is uniform for any interval $\left[\delta_{1}, \delta_{2}\right] \subset(0,1)$, hence 
+	\begin{equation}\label{formular_3.8}
+	\lim _{n \rightarrow \infty} F_{n}\left(\frac{[n x]}{n}\right)=F(x).
+	\end{equation}
+	Using $(\ref{formular_lnT})$ and $(\ref{formular_3.8})$, this complete the proof.
+\end{proof}
+
+
+\begin{proof}[\textit{\textbf{Proof of Theorem \ref{thm:main theorem}}}]
+	
+$(a)$ The proof is divided into three cases: $F(0)<y<1$, $y\leq F(0)$ and $y\geq 1$.\\
+Case 1:\ $0<y<1$. Let $\delta \in(0,1)$ be a number such that $F(0)<y-\delta<y<y+\delta<1$. Then we have $0<F^{*}(y-\delta)<F^{*}(y)<F^{*}(y+\delta)<1$.
+\begin{eqnarray*}
+&&\ \ \     \frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_n}T_j^{1 / \gamma_{n}} \leq y\right)\\
+&&=\frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{\gamma_{n}}\ln T_{j} \leq  \ln (a_n y)\right)\\
+&&=\frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{\gamma_{n}} 
+\ln \frac{T_{j}}{\prod_{r=1}^{m}\left(n+l_{r}\right)}-\ln F(x) 
+\leq  \ln ( \frac{a_n}{\prod_{r=1}^{m}(n+l_r)^{1/\gamma_{n}}})+\ln \frac{y}{F(x)}   \right)\\
+&&=\frac{1}{n} \sum_{j=1}^{[nx]} \mathbb{P}\left(\frac{1}{\gamma_{n}} 
+\ln \frac{T_{j}}{\prod_{r=1}^{m}\left(n+l_{r}\right)}-\ln F(x) 
+\leq  \ln \frac{y}{F(x)}   \right)\\
+&&\ \ +\frac{1}{n} \sum_{j=[nx]+1}^{n} \mathbb{P}\left(\frac{1}{\gamma_{n}} 
+\ln \frac{T_{j}}{\prod_{r=1}^{m}\left(n+l_{r}\right)}-\ln F(x) 
+\leq  \ln \frac{y}{F(x)}   \right)
+\end{eqnarray*}
+Firstly, let $x=F^{*}(y+\delta)$, we have 
+\begin{eqnarray*}
+&&\ \ \  \limsup _{n \rightarrow \infty}   \frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_n}T_j^{1 / \gamma_{n}} \leq y\right)\\
+&&\leq \limsup _{n \rightarrow \infty}  \frac{[nx]}{n}+ \limsup _{n \rightarrow \infty}  \mathbb{P}\left(\frac{1}{\gamma_{n}} 
+\ln \frac{T_{[nx]}}{\prod_{r=1}^{m}\left(n+l_{r}\right)}-\ln F(x) 
+\leq  \ln \frac{y}{y+\delta}<0   \right)\\
+&&=x=F^{*}(y+\delta)
+\end{eqnarray*}
+by employing Lemma \ref{lem: Zeng 2017   lem 2.3} and Theorem \ref{thm: ln F(x) limit}.\\
+Secondly, let $x=F^{*}(y-\delta)$  we have 
+\begin{eqnarray*}
+	&&\ \ \  \liminf _{n \rightarrow \infty}   \frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_n}T_j^{1 / \gamma_{n}} \leq y\right)\\
+	&&\geq \liminf _{n \rightarrow \infty}  \frac{1}{n} \sum_{j=1}^{[nx]} \mathbb{P}\left(\frac{1}{\gamma_{n}} 
+	\ln \frac{T_{j}}{\prod_{r=1}^{m}\left(n+l_{r}\right)}-\ln F(x) 
+	\leq  \ln \frac{y}{y-\delta}   \right)\\
+	&&\geq \liminf _{n \rightarrow \infty}  \frac{[nx]}{n} \mathbb{P}\left(\frac{1}{\gamma_{n}} 
+	\ln \frac{T_{[nx]}}{\prod_{r=1}^{m}\left(n+l_{r}\right)}-\ln F(x) 
+	\leq  \ln \frac{y}{y-\delta}   \right)\\
+	&&=x=F^{*}(y-\delta)
+\end{eqnarray*}
+by using Lemma \ref{lem: Zeng 2017   lem 2.3}, Theorem \ref{thm: ln F(x) limit} and $\ln \frac{y}{y-\delta}>0$.
+Now let $\delta\to 0$. Because $F^*(y)$ is continuous, Case 1 is done.\\
+
+Case 2:\ $y\leq F(0)$.\\
+For any $y_1 \in (F(0),1)$, we have 
+\begin{equation*}
+\frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_{n}} T_{j}^{1 / \gamma_{n}} \leqslant y\right)\leq \frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_{n}} T_{j}^{1 / \gamma_{n}} \leqslant y_1\right)\to F^*(y_1).
+\end{equation*}
+Let $y_1\searrow  F(0)$. Since $F^*(y)$ is right continuous at $F(0)$, we know that 
+\begin{equation*}
+\limsup_{n\rightarrow \infty}\frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_{n}} T_{j}^{1 / \gamma_{n}} \leqslant y\right)\leq F^*(F(0))=0.\\
+\end{equation*}
+Hence, case 2 is finished.\\
+Case 3:\ $y\geq 1$.\\
+For any $y_2 \in (F(0),1)$, we have 
+\begin{equation*}
+	\frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_{n}} T_{j}^{1 / \gamma_{n}} \leqslant y\right)\geq \frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_{n}} T_{j}^{1 / \gamma_{n}} \leqslant y_2\right)\to F^*(y_2).
+\end{equation*}
+Let $y_2\nearrow  1$. Since $F^*(y)$ is left continuous at $1$, we know that 
+\begin{equation*}
+	\liminf_{n\rightarrow\infty}\frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_{n}} T_{j}^{1 / \gamma_{n}} \leqslant y\right)\geq F^*(1)=1.
+\end{equation*}
+Hence $\frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_{n}} T_{j}^{1 / \gamma_{n}} \leq y\right)$ converges weakly to $F^*(y)$.\\
+Thus, $v_{n}$ converges weakly to the probability measure $v$.
+By Lemma \ref{lem: Zeng 2017   lem ?}, we know that $\mu_{n}$ converges weakly to$\text { Unif }[0,2 \pi) \otimes v$ as $n\to \infty$.\\
+$(b)$\\
+Note that $F(x)=1,\forall x>0$.\\
+Case 1: $0<y<1$.\\
+Let $x\in (0,1)$, $x\searrow0$. Then we obtain 
+\begin{equation*}
+\begin{aligned} & \limsup _{n \rightarrow \infty} \frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_{n}} T_{j}^{1 / \gamma_{n}} \leqslant y\right) \\ \leqslant & \limsup _{n \rightarrow \infty} \frac{[n x]}{n}+\limsup _{n \rightarrow \infty} \mathbb{P}\left(\frac{1}{\gamma_{n}} \ln \frac{T_{[n x]}}{\prod_{r=1}^{m}\left(n+l_{r}\right)}-\ln F(x) \leqslant \ln y<0\right) \\
+=&x\to 0
+ \end{aligned}
+\end{equation*}
+by using Lemma \ref{lem: Zeng 2017   lem 2.3} and Theorem \ref{thm: ln F(x) limit}.\\
+Case 2: $y>1$.\\
+Let $x\in (0,1)$, $x\nearrow 1$. Then we know that
+\begin{equation*}
+	\begin{aligned} 
+		& \liminf _{n \rightarrow \infty} \frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_{n}} T_{j}^{1 / \gamma_{n}} \leqslant y\right) \\
+	\geq& \liminf _{n \rightarrow \infty}\dfrac{[nx]}{n} \mathbb{P}\left(\frac{1}{\gamma_{n}} \ln \frac{T_{[n x]}}{\prod_{r=1}^{m}\left(n+l_{r}\right)}-\ln F(x) \leqslant \ln y\right)	
+	\\	\geqslant 
+		&x\to 1,
+	\end{aligned}
+\end{equation*}
+by using Lemma \ref{lem: Zeng 2017   lem 2.3} and Theorem \ref{thm: ln F(x) limit}.\\
+Hence $\frac{1}{n} \sum_{j=1}^{n} \mathbb{P}\left(\frac{1}{a_{n}} T_{j}^{1 / \gamma_{n}} \leq y\right)$ converges weakly to $F^*(y)$.\\
+The last part of the proof is similar to that in $(a)$. \\
+This complete the proof of Theorem \ref{thm:main theorem}.
+\end{proof}
+
+
+\section{A study in limiting distribution}\label{sec: a study in gamma}
+In this section, we are going to offer some powerful sufficient condition to guarantee $F(x)$ exists.
+Firstly, we define a random variable $\mathscr{L}_n$, with CDF and PDF as follows :
+\begin{eqnarray*}
+	&&\mathbb{P}(\mathscr{L}_n \leq y )=\frac{1}{m}\sum_{r=1}^{m}I_{\{n/n_r\leq y\}},\\
+	&&\mathbb{P}(\mathscr{L}_n = n/n_i )=\frac{\#\{r:l_r=l_i\}}{m},1\leq i\leq m.
+\end{eqnarray*}
+Technically the notation $l_r=l_r(n)$ is a function of $n$, but for brevity we still use the notation $l_r$.\\
+Define a family of functions $H_x:[0,1]\rightarrow[\ln (x),0]$ for fixed $x\in (0,1)$
+\begin{equation*}
+	H_{x}(\alpha)=\ln(1-\alpha (1-x)),\alpha \geq 0.
+\end{equation*}
+The inverse of $H_{x}$ can be easily calculated,
+\begin{equation*}
+	H^{-1}_{x}(\beta)=\dfrac{1-e^ \beta}{1-x} ,\ln(x)\leq \beta\leq0.
+\end{equation*}
+Now we can define anther random variable $Z_{n,x}=H_{x}(\mathscr{L}_n)$ to further simplify our notation. For example, 
+\begin{equation*}
+	\mathbb {E}Z_{n,x}=\frac{1}{m} \sum_{r=1}^{m} \ln \left(\frac{n x+l_{r}}{n+l_{r}}\right)
+\end{equation*}
+If we let $\gamma_{n}=m$, then we can rewrite $F_n(x)=e^{\mathbb{E}Z_{n,x}}$.
+Supposed that $\mathscr{L}_n$ converges weakly to a random variable $\mathscr{L}$ with CDF $G(x)$, i.e. $\mathbb{P}(\mathscr{L}_n \leq y )$ converges weakly to $G(y)$.\\
+Since $H_{x}(\alpha)$ is bounded and continuous, by Portmanteau Theorem we obtain that 
+\begin{equation*}
+	\mathbb{E}Z_{n,x}=\mathbb{E}H_{x}(\mathscr{L}_n)\to \mathbb{E}H_{x}(\mathscr{L})=\int_{[0,1]}H_{x}(\alpha)dG(\alpha).
+\end{equation*}
+Compared with limiting distribution $F(x)$, we can easily calculate the weak limit of $\mathscr{L}_n$.\\
+Now, we obtain the following theorem.
+\begin{thm}\label{thm5}
+	If 
+	\begin{equation*}
+		\mathbb{P}\left(\mathscr{L}_{n} \leqslant y\right)=\frac{1}{m} \sum_{r=1}^{m} I_{\left\{n/n_{r}  \leqslant y\right\}}
+	\end{equation*}
+	converges weakly to a distribution function $G(y)$, then let $\gamma_{n}=m$, we have a representation for limiting distribution $F(x)$, namely
+	\begin{equation}\label{Def_L_n}
+	F(x)=e^{\mathbb{E}H_{x}(\mathscr{L})}=e^{\int_{[0,1]}H_x(\alpha)dG(\alpha)},x\in (0,1).
+	\end{equation} 
+\end{thm}
+
+%The property of distribution function $G$ and the representation $(\ref{Def_L_n})$ is extremely important for us to learn the limiting processes for $F_n(x)$.
+\begin{rem}
+Let $\gamma_n=m$,  then $G(0+)=1$ i.e. $\mathbb{P}(\mathscr{L}=0)=1$ if and only if $F(x)$ is of $(ii)$ class.
+\end{rem}
+\begin{proof}\ \\
+	
+	First of all, by representation $(\ref{Def_L_n})$, $\mathbb{P}(\mathscr{L}=0)=1$ implies $F(x)=1, x\in (0,1)$
+	
+	Secondly,
+	$F(x)$ is of $(ii)$ class if and only if 
+	\begin{equation*}
+		\mathbb{E}\mathscr{L}_n=\frac{1}{m} \sum_{r=1}^{m} \frac{n}{n+l_{r}} \rightarrow 0.
+	\end{equation*}
+	Let $M>0$, by Markov inequality
+	\begin{equation*}
+		\mathbb{P}(\mathscr{L}_n\geq M)\leq \frac{\mathbb{E}\mathscr{L}_n}{M} \rightarrow 0
+	\end{equation*}
+	Hence $F(x)$ is of $(ii)$ class implies $\mathbb{P}(\mathscr{L}=0)=1$. 
+\end{proof}
+
+
+\begin{rem}
+Under the same conditions in theorem \ref{thm5}, then $\mathbb{P}(\mathscr{L}=1)=1$ if and only if $F(x)=x,x\in (0,1)$.\\
+\end{rem}
+The following remark offer a perfect explanation for the strange example in Remark \ref{stange}.
+\begin{rem}\label{useless1}
+	Under the same conditions in theorem \ref{thm5}, $G(1-)>0$ if and only if $F(0+)=0$. \\
+\end{rem}
+Remark \ref{useless1} tells us that if $m$ is bounded, which implies $G(1-)>0$. Thus, the strange thing that $F_n(0)=0$ but $F(0+)>0$ won't happen.
+
+Since $\frac{1}{m} \sum_{r=1}^{m} \frac{n}{n+l_{r}}\leq 1$, we know $F(x)$ can never be of the $(iii)$ class. Then theorem $\ref{thm:classification}$  implies $F(x)$ is continuous and positive over $(0,1]$.\\ 
+By chain rule% and integration by parts for Lebesgue-Stieltjes integrals
+, we get 
+\begin{equation}
+F'(x)=e^{\int_{[0,1]}H_{x}(\alpha)dG(\alpha)}\int_{[0,1]}\dfrac{\alpha}{1-\alpha(1-x)}dG(\alpha).\\
+%&&=e^{\int_{[0,\infty)}H_{x}(\alpha)dG(\alpha)}\int_{[0,\infty)}\dfrac{x}{(x+\alpha)^2}G(\alpha)d\alpha.
+\end{equation}
+
+\begin{rem}
+	Under the same conditions in theorem \ref{thm5}, if we suppose that $F(x)$ is of $(i)$ class, then $F(x)$ is continuous and strictly increasing mapping $[0,1]$ onto $[F(0),1]$. Let $F^*(x)$ denote the inverse of $F(x)$. \\
+	By the Theorem from \cite{abs},  $F(x)$ is absolutely continuous over $[0,1]$ if and only if 
+	\begin{equation*}
+	m\left(\left\{x : F'(x)=\infty \right\}\right)=0,
+	\end{equation*}
+	 and $F^*(x)$ is absolutely continuous over $[F(0),1]$ if and only if 
+	\begin{equation*}
+		m\left(\left\{x : F'(x)=0\right\}\right)=0.
+	\end{equation*}\\
+	It is easy to check $F'(x)=0$ if and only if $\int_{[0,1]}\dfrac{\alpha}{1-\alpha(1-x)}dG(\alpha)=0$ or $F(x)=0$, which implies if such $x\in [0,1]$ exists, then $x=0$.\\
+	Hence $F^*(y)$ satisfies absolute continuity and $F^{*\prime}(y)=1/F'(F^*(y))$.
+\end{rem}
+
+In fact, we have the following general conclusion. 
+\begin{thm}\label{absFF*}
+    If $F(x)$ is of $(i)$ class, then $F(x)$ and $F^*(x)$ are absolutely continuous.
+\end{thm}
+\begin{proof}
+By theorem \ref{thm:classification}, we know that 
+\begin{equation*}
+0<c_{1} \leqslant \frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n+l_{r}} \leqslant c_{2}<\infty.
+\end{equation*}
+Since 
+\begin{equation*}
+F_n(x)'=F_n(x)\dfrac{1}{\gamma_{n}}\sum_{r=1}^{m}\dfrac{n}{nx+l_r},
+\end{equation*}
+for fixed $x,y\in(0,1]$, mean value theorem implies there existss $\eta$ between $x$ and $y$ such that
+\begin{equation*}
+\dfrac{F_n(x)-F_n(y)}{x-y}=F_n(\eta)\frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n\eta+l_{r}}\in [c_1,\frac{c_2}{min(x,y)}].
+\end{equation*}
+$F(x)$ increases strictly implies differentiable almost everywhere on $[0,1]$. \\
+We choose a differentiable point $x$, and let $n\rightarrow \infty$ as well as $y\rightarrow x$, we know that $F'(x)\in [c_1,\frac{c_2}{x}]$. \\
+By the Theorem from \cite{abs}, we finish the proof.
+\end{proof}
+\begin{rem}
+	Let $\frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n+l_{r}}\rightarrow 1$, then $F'(1)=1$. Hence if we take $\gamma_n=\sum_{r=1}^{m} \frac{n}{n+l_{r}}$, then $F'(1)=1$, which enlightens us how to choose $\gamma_n$.
+\end{rem}
+
+
+\subsection{A study in scale sequence $\gamma_n$ with examples}\ \\
+The main idea for this section is to choose a sequence of $\gamma_{n}$, given the size of the random matrices, such that $F(x)$ exists and it is non-degenerated, which means $F(x)$ is of the $(i)$ class.\\
+Recall the sequence of functions,
+\begin{equation*}
+	F_{n}(x)=\left(\prod_{j=1}^{m}\left(1-\frac{n}{n_{j}}(1-x)\right)\right)^{1 / \gamma_{n}}.
+\end{equation*}
+Define $0<\alpha _j =\frac{n}{n_j}\leq 1$.
+Firstly, supposed $\gamma_{n}$ have a subsequence goes to $0$, denote the sequence still by  $\gamma_{n}$ without adding ambiguous.
+\begin{equation*}
+	F_n(x)=x^{1 / \gamma_{n}} \left(\prod_{j=2}^{m}\left(1-\frac{n}{n_{j}}(1-x)\right)\right)^{1 / \gamma_{n}}\leq x^{1 / \gamma_{n}} \rightarrow 0,
+\end{equation*}
+which means limiting distribution is degenerated.\\
+Hence we can assume $\gamma_{n}\geq 1$ in order to avoid the limiting distribution degenerating to the $(iii)$ class.\\
+Secondly, if 
+\begin{equation*}
+	\limsup _{n \rightarrow \infty}\dfrac{\gamma_{n}}{m}=\infty ,
+\end{equation*}
+then we can find a subsequence of $n$ such that for all $M>0$, the following holds for large enough $n$, still denote the sequence by  ${n}$ without adding ambiguous.
+\begin{equation}
+F_n(x)\geq\left(\prod_{j=1}^{m}\left(1-\frac{n}{n_{j}}(1-x)\right)\right)^{\dfrac{1}{Mm}}\geq x^{1 / M}\rightarrow 1, M\rightarrow \infty
+\end{equation}
+Hence we can assume $\gamma_{n}\leq m$ in order to avoid the limiting distribution degenerating to the $(ii)$ class.
+\begin{dfn}
+	Condition $1\leq \gamma_{n} \leq m$ is called regular condition of the sequence $\gamma_{n}$.
+\end{dfn}
+The regular condition is just a reasonable scope of $\gamma_{n}$. \\
+
+Now, let us consider some concrete example to understand the limiting process of $F_n(x)$ when $\gamma_{n}$ takes $1$ or $m$. In previous subsection we already offer the theorem $\ref{thm5}$, which is an example for $\gamma_{n}=m$. For the case of $\gamma_{n}=1$, the example is as follows.
+\begin{exm}\label{ex4.1}
+	We take $\gamma_n=1$. Fixed a positive integer $J$, let $n_{(j)}$ represent the j-th smallest $n_j$. Supposed $\frac{n}{n_{(j)}}\rightarrow \alpha_j \geq 0$, $\alpha _J>0,  \alpha_{J+1}=0$ and $\sum_{r=J+1}^{m} \frac{n}{n_{(j)}}=c$, then 
+	\begin{equation}
+	F(x)=x\prod_{j=2}^{J}\left(1-\alpha_j(1-x)\right)e^{-c(1-x)},x\in (0,1].
+	\end{equation}
+\end{exm}
+\begin{proof}
+	The only thing we need to prove is 
+	\begin{equation*}
+		\prod_{j=J+1}^{m}\left(1-\frac{n}{n_{(j)}}(1-x)\right)\rightarrow e^{-c(1-x)}.
+	\end{equation*}
+	
+	By inequality $(\ref{inequality})$, $ \alpha_{J+1}=0$, the following inequality holds for all $\delta\in (0,1)$ and correspondingly large enough $n$:
+	\begin{equation*}
+		-\frac{1+\delta}{2 \delta} \sum_{j=J+1}^{m} \frac{ n}{n_{(j)}}(1-x) \leqslant  \sum_{j=J+1}^{m} \ln \left({1-   \frac{n}{n_{(j)}} (1-x)}\right) \leqslant-\sum_{j=J+1}^{m} \frac{n}{n_{(j)}} (1-x).
+	\end{equation*}
+	
+	By previous inequality and $\sum_{r=J+1}^{m} \frac{n}{n_{(j)}}=c$, let $\delta \rightarrow 1$, then we finish the proof.
+\end{proof}
+
+\subsection*{How to adjust $\gamma_n$}
+On the one hand, if we have a sequence $\gamma_{n}$ such that $F(x)=0,x\in(0,1)$ of the $(iii)$ class, which means 
+\begin{equation*}
+\frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n+l_{r}} \rightarrow \infty.
+\end{equation*}
+Notice that in this situation, $m\rightarrow \infty$.
+However, in theorem \ref{thm: ln F(x) limit} and \ref{thm:main theorem}, we know that $\frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n+l_{r}}$ should be bounded, which means this choice of sequence $\gamma_{n}$ is bad and we should find a greater sequence $\gamma_{n}$.\\
+On the other hand, if we have a sequence $\gamma_{n}$ such that $F(x)=1,x\in(0,1)$ of the $(ii)$ class, which implies
+\begin{equation*}
+	\mathbb{E} \mathscr{L}_{n}=\frac{1}{m} \sum_{r=1}^{m} \frac{n}{n+l_{r}}\leq \frac{1}{\gamma_{n}} \sum_{r=1}^{m} \frac{n}{n+l_{r}} \rightarrow  0.
+\end{equation*}
+Notice that in this situation, $\gamma_{n}\ and\  m$ both go to $\infty$.
+However, in theorem \ref{thm:main theorem}, even though the condition holds, the eigenvalue is degenerated on unit circle, which means this choice of sequence $\gamma_{n}$ is too large.
+
+\begin{dfn}
+	Condition 
+	\begin{equation*}
+		\mathbb{E} \mathscr{L}_{n}=\frac{1}{m} \sum_{r=1}^{m} \frac{n}{n+l_{r}} \rightarrow 0
+	\end{equation*}
+	is called tough condition of the size of the random matrix.
+\end{dfn}
+\begin{rem}
+	Since $\mathscr{L}_{n}\in [0,1]$, the following three conditions $\mathbb{E} \mathscr{L}_{n}\rightarrow 0$, $ \mathscr{L}_{n}\rightarrow 0$ in probability and $ \mathscr{L}_{n}\rightarrow 0$ weakly are equivalent.
+\end{rem}
+If tough condition holds, then we should use the Theorem \ref{thm:main theorem 2 with L} to help us to determine $F(x)$.
+
+
+
+%\begin{rem}
+%	Tough condition is significant for the classification of limiting distribution, and literately, it is the condition under which our problem is tougher than any other condition. We will discuss the classification in the later chapters.
+%\end{rem}
+\section{Examples}
+\begin{rem}
+	In Jiang and Qi \cite{JiangQi2019}, Theorem 2 is a special case for $\gamma_n=m$, $l_r=0, 1\leq r\leq m$ and $F(x)=x, x\in [0,1]$. 
+\end{rem}
+\begin{rem}
+    In Zeng \cite{zeng2017}, Theorem 1.1 is a special case for constant sequence $m=m$,  $\gamma_{n}=1$.
+ \end{rem}
+ \begin{rem}
+By Theorem \ref{absFF*}, we can define $f^*(r)=\dfrac{d F^*(r)}{dr}, r\in (0,1)$. Then Theorem \ref{thm:main theorem} implies $\mu_{n}=\frac{1}{n} \sum_{j=1}^{n} \delta_{\left(\Theta_{j}, h_{n}\left(\left|z_{j}\right|\right)\right)}$ converges weakly to measure $\mu$ whose density function is given by $p(z)=\frac{1}{2 \pi|z|} f^{*}(|z|)$. 
+\end{rem}
+Now, I am going to offer 2 new examples.
+\begin{exm}
+	Assume $\dfrac{n}{n_{(J_n)}}\rightarrow 1$, $\dfrac{n}{n_{(J_n+1)}}\rightarrow 0$ and $\frac{1}{J_{n}} \sum_{r=J_{n}+1}^{m} \frac{n}{n_{(r)}} \rightarrow 0$. Let $\gamma_{n}=2J_n$, $a_{n}=\left(\prod_{r=1}^{m}n_{r}\right)^{1 / \gamma_{n}}$, $h_{n}(x)=\frac{1}{a_{n}}|x|^{2 / \gamma_{n}}$. Then
+	\begin{equation*}
+	\mu_{n}=\frac{1}{n} \sum_{j=1}^{n} \delta_{\left(\Theta_{j}, h_{n}\left(\left|z_{j}\right|\right)\right)}\rightarrow \text { Unif }\{|z| \leq 1\}\ \text{converges weakly}.
+	\end{equation*}
+\end{exm}
+\begin{proof}
+    It is easy to verify all conditions in Theorem \ref{thm:main theorem 2 with L}. If we let $\gamma_{n}=J_n$, then 
+    \begin{equation*}
+    \mathbb{P}\left(\mathscr{L}_{n}\left(J_{n}\right) \leqslant y\right) :=\frac{1}{J_{n}} \sum_{r=1}^{J_{n}} I_{\left\{n / n_{(r)} \leqslant y\right\}} \rightarrow G(y), \text { convergence weakly,}
+    \end{equation*}
+    where $G(1-)=0$ and $G(1)=1$. Hence $F(x)=x$. \\
+    If we let $\gamma_{n}=2J_n$, then $F(x)=\sqrt x$, which implies $F^*(r)=r^2$, $f^*(r)=2r$ and density of weak limit is $p(z)=\frac{1}{2 \pi|z|} f^{*}(|z|)I_{\{|z|\leq 1\}}=\frac{1}{\pi}I_{\{|z|\leq 1\}}$. Using Theorem \ref{thm:main theorem}, we finish the proof.
+\end{proof}
+
+The next example is about when tough condition holds, how should we choose sequence $\gamma_n$.
+\begin{exm}
+	Assume $m=\alpha_n n+1$, $n_{1}=n$, $n_r=\alpha_n n, 2\leq r \leq m$, where $\alpha_n$ is a sequence of integers, such that $\alpha_n\rightarrow \infty$.\\
+	Since $\sum_{r=1}^{m} \frac{n}{n_{r}}=n+1$, we simply take $\gamma_n=n$. Then 
+	\begin{equation*}
+	F_n(x)=(x(1-\frac{n}{\alpha_n n}(1-x))^{\alpha_n n})^{1/n}\rightarrow F(x)=e^{x-1}, x\in [0,1],
+	\end{equation*}
+	\begin{equation*}
+	F^*(r)=\ln (r)+1, f^*(r)=\frac{1}{r}, \frac{1}{e}<r<1,
+	\end{equation*}
+\begin{center}
+\end{center}	 
+	\begin{equation*}
+\text{and  }	p(z)=\frac{1}{2\pi |z|^2}.
+	\end{equation*}
+	Using Theorem \ref{thm:main theorem}, let $a_{n}=n^{1/n}(\alpha_n n)^{\alpha_n }$, $h_{n}(x)=\frac{1}{a_{n}}|x|^{2 / {n}}$. 
+	Thus, 
+	\begin{equation*}
+	\mu_{n}=\frac{1}{n} \sum_{i=1}^{n} \delta_{\left(\Theta_{j}, h_{n}\left(\left|z_{j}\right|\right)\right)} \rightarrow \mu  \text {, converges weakly, }
+	\end{equation*}
+	where the limit distribution $\mu$ has density 
+	\begin{equation*}
+   p(z)=\frac{1}{2\pi |z|^2}, \frac{1}{e}<|z|<1.
+	\end{equation*}
+\end{exm}
+%Recall the definition of the random variable $\mathscr{L}_{n}$
+%\begin{equation*}
+%	\mathbb{P}\left(\mathscr{L}_{n} \leqslant y\right)=\frac{1}{m} \sum_{r=1}^{m} I_{\left\{l_{r} / n \leqslant y\right\}}.
+%\end{equation*}
+%Let $\mathbb{P}\left(\mathscr{L}_{n} \leqslant y\right)$ converges weakly to a distribution function $G(y)$. \\
+%Let $\gamma_{n}=m$, recall Theorem \ref{thm2}
+%\begin{equation*}
+%	F(x)=e^{\mathbb{E}H_{x}(\mathscr{L})}=e^{\int_{[0,\infty]}H_x(\alpha)dG(\alpha)},x\in (0,1).
+%\end{equation*} 
+%and $F:[0,1]\to [F(0),1]$ continues and strictly increasing
+
+
+\textbf{Acknowledgements}. The research of Tiefeng Jiang and Yongcheng Qi was supported in part by NSF Grant DMS-1916014.
+
+
+\bibliographystyle{amsplain}
+\begin{thebibliography}{n} %% n is number of items, or the largest label
+
+
+\bibitem{Handbook of Mathematical Functions}  Abramowitz, M., Stegun, I.A.: Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical Tables, 9th edn. Dover Publications, New York (1965)
+\bibitem{JiangQi2019} Jiang, T. and Qi, Y. (2019). Empirical distributions of eigenvalues of product ensembles. Journal of Theoretical Probability 32(1), 353-394.
+\bibitem{SRP} Yongcheng Qi and Mengzi Xie (2019). Spectral Radii of Products of Random Rectangular Matrices. Journal of Theoretical Probability, https://doi.org/10.1007/s10959-019-00942-9.
+\bibitem{Adhikari}
+Adhikari, K., Reddy, N. K., Reddy, T. R. and Saha, K. (2016). Determinantal point processes in the plane from products of random matrices. Ann. Inst. H. Poincare Probab. Statist. 52 (1), 16-46.
+\bibitem{zeng2016}
+Zeng, X. (2016). Eigenvalues distribution for products of independent spherical ensmbles. J. Phys. A: Math. Theor. 49, 235201.
+\bibitem{zeng2017}
+Zeng, X. (2017). Limiting empirical distribution for eigenvalues of products of random rectangular matrices. Statistics and Probability Letters 126, 33-40.
+
+\bibitem{2017}
+Jiang, T. and Qi, Y. (2017). Spectral radii of large non-Hermitian random matrices. Journal of Theoretical Probability 30(1), 326-364.
+\bibitem{abs}
+Silvia Spataru (2004). An absolutely continuous function whose inverse function is not absolutely continuous. Note di Matematica 23, n. 1, 2004,47-49.
+\bibitem{wishart}  Wishart, J. (1928). The generalized product moment distribution in samples from a normal multivariate population. Biometrika 20, 35-52.
+\bibitem{Dyson}F.J.Dyson. The three fold way: Algebraic structure of symmetry groups and ensembles in quantum mechanics ,Journal of Mathematical Physics 3(1962)1200-1215.
+\bibitem{Ginibre}  J.Ginibre. Statistical ensembles of complex, quaternion and real matrices, Journal of Mathematical Physics 6 (1965) 440-449.
+\bibitem{Girko} Girko, V.L. (1984). "The circular law". Teoriya Veroyatnostei i ee Primeneniya. 29 (4): 669-679.
+
+\bibitem{Bai}Bai, Z.D. (1997). "Circular law". Annals of Probability. 25 (1): 494-529
+\bibitem{Pan}Pan, G.; Zhou, W. (2010). "Circular law, extreme singular values and potential theory". J. Multivariate Anal. 101 (3): 645-656.
+
+\bibitem{GF-TA}Gotze, F.; Tikhomirov, A. (2010). "The circular law for random matrices". Annals of Probability. 38 (4): 1444-1491.
+
+ \bibitem{Tao}Tao, Terence; Vu, Van (2010). appendix by Manjunath Krishnapur. "Random matrices: Universality of ESD and the Circular Law". Annals of Probability. 38 (5): 2023-2065.
+ 
+\bibitem{Ipsen} Ipsen, J.R. (2015). Products of independent Gaussian random matrices. Doctoral Dissertation, Bielefeld University.
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+%% To be filled in the journal office:
+
+@author:
+@affiliation:
+@title:
+@language: English
+@pages:
+@classification1:
+@classification2:
+@keywords:
+@abstract:
+@filename:
+@EOI
+
+
